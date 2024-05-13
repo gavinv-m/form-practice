@@ -7,35 +7,54 @@
     <title>Form Practice</title>
   </head>
   <body>
-    <form>
+    <form novalidate>
       <h1>Sign Up</h1>
       <section>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" />
+          <input type="email" id="email" name="email" required />
+          <span class="error" aria-live="polite"></span>
         </div>
 
         <div class="location">
           <div class="form-group">
             <label for="country">Country</label>
-            <input type="text" list="countries" id="country" name="country" />
+            <input
+              type="text"
+              list="countries"
+              id="country"
+              name="country"
+              required
+            />
             <datalist id="countries"></datalist>
           </div>
 
           <div class="form-group">
             <label for="zip">Zip Code</label>
-            <input type="text" id="zip" name="zip" />
+            <input type="text" id="zip" name="zip" required />
           </div>
         </div>
 
         <div class="form-group">
           <label for="pwd">Password</label>
-          <input type="password" id="pwd" name="password" autocomplete="off" />
+          <input
+            type="password"
+            id="pwd"
+            name="password"
+            autocomplete="off"
+            required
+          />
         </div>
 
         <div class="form-group">
           <label for="cpwd">Confirm Password</label>
-          <input type="password" id="cpwd" name="password" autocomplete="off" />
+          <input
+            type="password"
+            id="cpwd"
+            name="password"
+            autocomplete="off"
+            required
+          />
         </div>
       </section>
       <button type="submit" value="Submit">Submit</button>
