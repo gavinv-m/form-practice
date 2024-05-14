@@ -17,7 +17,8 @@
         "objects": "never",
         "imports": "never",
         "exports": "never",
-        "functions": "never"
+        "functions": "never",
+        "trailing": "always"
       }
     ],
     "import-newlines/enforce": ["error", 2],
