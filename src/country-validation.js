@@ -1,4 +1,5 @@
 import { COUNTRY_ADDRESS_POSTALS } from './country-list';
+import validateZipCode from './zip-validation';
 
 export default function validateCountry() {
   const countriesDatalist = document.getElementById('countries');
@@ -24,14 +25,15 @@ export default function validateCountry() {
 
     if (country.validity.valueMissing) {
       countryError.textContent = 'You need to enter a country.';
+      country.style.backgroundColor = '#fdd';
     } else if (!found) {
-      countryError.textContent =
-        'Invalid country entered. Please check your spelling and try again.';
+      countryError.textContent = 'Please check your spelling and try again.';
       country.style.backgroundColor = '#fdd';
     } else {
       countryError.textContent = '';
       country.style.backgroundColor = '#FFFFFF';
       zipCodeInput.disabled = false;
+      validateZipCode(country.value);
     }
   });
 }
