@@ -1,12 +1,25 @@
+import confirmPassword from './confirm-password';
+
 export default function validatePassword() {
   const passwordField = document.getElementById('pwd');
   const passwordError = document.querySelector('#pwd + .error');
+  const confirmPasswordField = document.getElementById('cpwd');
 
+  let passwordValid = false;
   let errorMessage = '';
 
   const validateInput = function validatePasswordInput() {
     passwordField.setCustomValidity(errorMessage);
     passwordError.textContent = errorMessage;
+
+    // Disable confirm password field
+    passwordValid = errorMessage === '' ? true : false;
+    if (
+      passwordValid === false &&
+      !confirmPasswordField.hasAttribute('disabled')
+    ) {
+      confirmPasswordField.setAttribute('disabled', true);
+    }
   };
 
   const showError = function showPasswordError() {
@@ -39,6 +52,10 @@ export default function validatePassword() {
 
     errorMessage = '';
     validateInput();
+
+    // Enable confirm password field
+    confirmPasswordField.removeAttribute('disabled');
+    confirmPassword(passwordField.value);
   };
 
   passwordField.addEventListener('input', () => {
