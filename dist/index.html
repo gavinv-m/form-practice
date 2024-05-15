@@ -45,8 +45,11 @@
             id="pwd"
             name="password"
             autocomplete="off"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).*$"
+            minlength="8"
             required
           />
+          <span class="error" aria-live="polite"></span>
         </div>
 
         <div class="form-group">
