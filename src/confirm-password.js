@@ -1,5 +1,4 @@
 export default function confirmPassword(password) {
-  console.log(password);
   const confirmPasswordField = document.getElementById('cpwd');
   const confirmPasswordError = document.querySelector('#cpwd + .error');
 
