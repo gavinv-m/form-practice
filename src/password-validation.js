@@ -23,6 +23,12 @@ export default function validatePassword() {
   };
 
   const showError = function showPasswordError() {
+    if (passwordField.validity.valueMissing) {
+      errorMessage = 'You need to enter a password';
+      validateInput();
+      return;
+    }
+
     // Check for lowercase letters
     if (!/[a-z]/.test(passwordField.value)) {
       errorMessage = 'Missing a lowercase letter.';
