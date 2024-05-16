@@ -44,9 +44,11 @@ form {
   background-color: #27262d;
   border-style: none;
   border-radius: 15px;
-  height: 75%;
-  padding: 0px 35px 0px 35px;
+  max-height: 85%;
+  min-height: 600px;
+  padding: 0px 35px 10px 35px;
   width: 65%;
+  min-width: 384px;
 
   /* Descendants: */
   gap: 15px;
