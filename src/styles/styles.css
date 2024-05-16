@@ -82,9 +82,18 @@ input:focus:invalid {
   outline: none;
 }
 
-input:user-invalid {
-  border-color: #900;
+input:invalid {
   background-color: #fdd;
+}
+
+/* Has same specificity as input:invalid, so must come later */
+input.default-state,
+input:valid {
+  background-color: #ffffff;
+}
+
+input:disabled {
+  background-color: #7c7c78;
 }
 
 label {

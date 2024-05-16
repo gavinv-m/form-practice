@@ -12,7 +12,13 @@
       <section>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            class="default-state"
+            id="email"
+            name="email"
+            required
+          />
           <span class="error" aria-live="polite"></span>
         </div>
 
@@ -25,7 +31,7 @@
               id="country"
               name="country"
               required
-              pattern="^(?:Afghanistan|Albania|...|Zimbabwe)$"
+              class="default-state"
             />
             <span class="error" aria-live="polite"></span>
             <datalist id="countries"></datalist>
@@ -33,7 +39,14 @@
 
           <div class="form-group">
             <label for="zip">Zip Code</label>
-            <input type="text" id="zip" name="zip" required disabled />
+            <input
+              type="text"
+              id="zip"
+              name="zip"
+              required
+              disabled
+              class="default-state"
+            />
             <span class="error" aria-live="polite"></span>
           </div>
         </div>
@@ -43,6 +56,7 @@
           <input
             type="password"
             id="pwd"
+            class="default-state"
             name="password"
             autocomplete="off"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).*$"
@@ -57,6 +71,7 @@
           <input
             type="password"
             id="cpwd"
+            class="default-state"
             name="password"
             autocomplete="off"
             required
