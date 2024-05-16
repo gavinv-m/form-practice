@@ -9,6 +9,9 @@ export default function validatePassword() {
   let errorMessage = '';
 
   const validateInput = function validatePasswordInput() {
+    if (passwordField.classList.contains('default-state')) {
+      passwordField.classList.remove('default-state');
+    }
     passwordField.setCustomValidity(errorMessage);
     passwordError.textContent = errorMessage;
 
