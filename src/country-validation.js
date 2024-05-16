@@ -15,6 +15,15 @@ export default function validateCountry() {
   const country = document.getElementById('country');
   const countryError = document.querySelector('#country + .error');
   const zipCodeInput = document.getElementById('zip');
+  let errorMessage = '';
+
+  const validateInput = function validateCountryInput() {
+    if (country.classList.contains('default-state')) {
+      country.classList.remove('default-state');
+    }
+    country.setCustomValidity(errorMessage);
+    countryError.textContent = errorMessage;
+  };
 
   country.addEventListener('input', () => {
     const found = COUNTRY_ADDRESS_POSTALS.some(
@@ -24,16 +33,19 @@ export default function validateCountry() {
     zipCodeInput.disabled = true;
 
     if (country.validity.valueMissing) {
-      countryError.textContent = 'You need to enter a country.';
-      country.style.backgroundColor = '#fdd';
+      errorMessage = 'You need to enter a country.';
+      validateInput();
     } else if (!found) {
-      countryError.textContent = 'Please check your spelling and try again.';
-      country.style.backgroundColor = '#fdd';
+      errorMessage = 'Please check your spelling and try again.';
+      validateInput();
     } else {
-      countryError.textContent = '';
-      country.style.backgroundColor = '#FFFFFF';
+      errorMessage = '';
+      validateInput();
+
+      // Zip code section
       zipCodeInput.disabled = false;
       validateZipCode(country.value);
     }
   });
+  return;
 }
